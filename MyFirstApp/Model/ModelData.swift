@@ -1,5 +1,5 @@
 //
-//  ModalData.swift
+//  ModelData.swift
 //  MyFirstApp
 //
 //  Created by Harshit Kumar on 25/12/25.
@@ -16,7 +16,10 @@ class ModelData {
                 grouping: landmarks,
                 by: { $0.category.rawValue }
             )
-        }
+    }
+    var features: [Landmark] {
+        landmarks.filter { $0.isFeatured }
+    }
 }
 
 func load<T: Decodable>(_ filename: String ) -> T {
